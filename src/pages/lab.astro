@@ -1,39 +1,72 @@
 ---
 import Base from '../layouts/Base.astro';
-import { contactEmail } from '../data/site';
+import { contactEmail, links } from '../data/site';
 ---
-<Base title="Living Stories Lab" path="/lab" description="The Living Stories Lab and Theses & Thrones, a theological strategy game set in the English Reformation.">
+<Base title="Living Stories Lab" path="/lab" description="The Living Stories Lab: collaborative sermons, pageants, and councils, developed at St. Gregory of Nyssa and shared with other congregations.">
   <section class="hero">
-    <div class="wrap split wide-left">
-      <div>
-        <p class="eyebrow">Living Stories Lab</p>
-        <h1>Beyond the sermon</h1>
-        <p class="lead">Living Stories began with preaching, but its commitments to communal interpretation, creative engagement, and intergenerational participation can shape many kinds of formation.</p>
-        <p>The Lab is the home for that work: new practices developed and tested at St. Gregory of Nyssa, then shared with other congregations in forms that are simple and adaptable. It isn't a formal organization yet. It's a vision taking shape, and its first project is a game.</p>
+    <div class="wrap">
+      <p class="eyebrow">Living Stories Lab</p>
+      <h1>One approach, many forms</h1>
+      <p class="lead">Living Stories began with preaching. The same commitments shape everything in the Lab: the whole community interprets together, every age takes part, and everyone steps into the story together.</p>
+      <p class="prose">Each practice is developed and tested at St. Gregory of Nyssa Episcopal Church in San Francisco, then shared with other congregations in forms that are simple and adaptable. The Lab isn't a formal organization yet. It's a home for this work as it grows.</p>
+      <div class="grid-3" style="margin-top:2.5rem">
+        <a class="card" href="/how-it-works">
+          <p class="eyebrow" style="margin-bottom:.4rem">Available now</p>
+          <h3>Living Stories Sermons</h3>
+          <p>The congregation interprets the Sunday Gospel together, in place of the usual sermon.</p>
+          <span class="more">How it works →</span>
+        </a>
+        <a class="card" href="#pageants">
+          <p class="eyebrow" style="margin-bottom:.4rem">Coming soon</p>
+          <h3>Living Stories Pageants</h3>
+          <p>The community chooses the scripture, writes the script, and performs it within the liturgy.</p>
+          <span class="more">Read more →</span>
+        </a>
+        <a class="card" href="#councils">
+          <p class="eyebrow" style="margin-bottom:.4rem">Theses &amp; Thrones in beta</p>
+          <h3>Living Stories Councils</h3>
+          <p>Theology strategy games where youth argue the questions real believers faced in turbulent times.</p>
+          <span class="more">Read more →</span>
+        </a>
       </div>
-      <figure class="photo photo-wide">
-        <img src="/img/lab.webp" alt="Felt shapes, small figures, notebooks and drawings laid out on a work table" />
+    </div>
+  </section>
+
+  <section class="section band" id="pageants">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="eyebrow">Living Stories Pageants</p>
+        <h2>A pageant the congregation writes</h2>
+        <p>Most pageants hand out a finished script. In a Living Stories Pageant, the community builds it together over several weeks, and the time spent writing it becomes time spent dwelling in the story.</p>
+        <h3 style="margin-top:2rem">Easter 2026</h3>
+        <p>We started by setting the resurrection accounts from all four Gospels side by side. Over two Sundays, people of every age cut them apart with scissors, spread the pieces across tables, and argued about how to arrange them. The group settled on five scenes, mostly from Luke 24, with Mary Magdalene's encounter in the garden from John 20. They chose to keep the moment when the apostles dismiss the women's testimony as nonsense.</p>
+        <p>Through Lent, the cast revised the script each week. There was no memorization and no auditions, so a five-year-old and an eighty-year-old faced the same low bar. On Easter morning the pageant was performed in the round, in the midst of the congregation, as part of the liturgy.</p>
+        <h3 style="margin-top:2rem">What's next</h3>
+        <p>On All Saints Sunday 2026, <em>Moses, Seen From Behind</em> told Moses' life through imagined conversations among the people around him, and took the place of the readings and the sermon. A Christmas pageant follows. A guide for other congregations is in the works.</p>
+      </div>
+      <figure class="photo">
+        <img src="/img/easter-pageant.webp" alt="Young people in costume reading their parts in front of the icon wall at St. Gregory of Nyssa during the Easter pageant" width="1000" height="1333" loading="lazy" />
+        <figcaption>The Easter 2026 pageant at St. Gregory of Nyssa</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section band" id="theses-and-thrones">
-    <div class="wrap split" style="align-items:start">
-      <div>
-        <img src="/img/tt-logo.webp" alt="Theses and Thrones logo" width="220" style="margin-bottom:1rem" />
-        <p class="eyebrow">First project · In beta</p>
-        <h2>Theses &amp; Thrones</h2>
-        <p class="lead">A theological strategy game set in the English Reformation. Players don't study the Reformation; they preach their way through it.</p>
-        <p>Youth take on four factions (Henricians, Evangelicals, Puritans, and Traditionalists), each with real theological positions, a historical theologian, and a team of preachers to deploy across a map of the British Isles. Over five sessions they argue the questions the reformers faced, like who has authority over the church and whether worship should be in Latin, and test their arguments before judges to win reinforcements.</p>
-        <p>Each session, a real event such as the Act of Supremacy or the Dissolution of the Monasteries reshapes the board. Factions rise and fall, and players feel how theology and politics shaped each other.</p>
+  <section class="section" id="councils">
+    <div class="wrap">
+      <div class="prose">
+        <p class="eyebrow">Living Stories Councils</p>
+        <h2>Theology you play</h2>
+        <p>Councils are multi-day strategy games for youth. Players join historical factions, prepare arguments on the questions those factions actually faced, and watch real events reshape the board. Each one premiered at FOG Camp, St. Gregory's summer program.</p>
       </div>
-      <div class="stack">
-        <figure class="photo">
-          <img src="/img/board.webp" alt="The Theses and Thrones game board, a map of the British Isles" width="554" height="624" loading="lazy" />
-        </figure>
-        <div class="card">
-          <h3>The details</h3>
-          <ul class="check small" style="margin-top:.75rem">
+
+      <div class="split" style="align-items:start;margin-top:2.5rem" id="theses-and-thrones">
+        <div>
+          <img src="/img/tt-logo.webp" alt="Theses and Thrones logo" width="200" style="margin-bottom:1rem" />
+          <p class="eyebrow">Council one · Available in beta</p>
+          <h2>Theses &amp; Thrones</h2>
+          <p class="lead">The English Reformation. Players don't study it; they preach their way through it.</p>
+          <p>Four factions (Henricians, Evangelicals, Puritans, and Traditionalists) each have real theological positions, a historical theologian, and a team of preachers to deploy across a map of the British Isles. Over five sessions they argue questions like who has authority over the church and whether worship should be in Latin, and test their arguments before judges to win reinforcements. Each session, a real event such as the Act of Supremacy or the Dissolution of the Monasteries reshapes the board.</p>
+          <ul class="check small" style="margin-top:1.25rem">
             <li>Piloted at FOG Camp 2025 with players ages 7 to 17</li>
             <li>Best for middle school through college; 8 players minimum, 12 to 20 ideal</li>
             <li>Sessions run 2 to 4 hours, as a week-long intensive or across several weeks</li>
@@ -42,6 +75,16 @@ import { contactEmail } from '../data/site';
           </ul>
           <div class="actions"><a class="btn" href={'mailto:' + contactEmail + '?subject=Theses%20%26%20Thrones%20beta'}>Request beta access</a></div>
         </div>
+        <figure class="photo">
+          <img src="/img/board.webp" alt="The Theses and Thrones game board, a map of the British Isles" width="554" height="624" loading="lazy" />
+        </figure>
+      </div>
+
+      <div class="card" style="margin-top:3rem" id="a-house-divided">
+        <p class="eyebrow">Council two · Coming soon</p>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.6rem)">A House Divided</h2>
+        <p>Roman-occupied Judea, in the Second Temple period. Four factions (Sadducees, Pharisees, Essenes, and Zealots) work together against an escalating Roman occupation while each pursues its own convictions about the Temple, taxation, resistance, and the hope of deliverance. Where Theses &amp; Thrones is competitive, A House Divided is cooperative. It premiered at FOG Camp 2026.</p>
+        <p class="muted small" style="margin:0">Want to hear when it's ready? <a href={links.newsletter} target="_blank" rel="noopener">Subscribe to the newsletter.</a></p>
       </div>
     </div>
   </section>
