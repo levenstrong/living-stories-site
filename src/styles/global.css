@@ -1,0 +1,162 @@
+/* Living Stories Sermons: carried over from the Squarespace site's design.
+   Fonts: Caveat (headings), Caveat Brush (buttons), Lora (body), Nunito Sans (small labels). */
+
+:root {
+  /* Palette (from the Squarespace theme) */
+  --cream: #F3EDE0;     /* page background */
+  --moss: #6B7A40;      /* big headings, body text in default sections */
+  --olive: #745D20;     /* body text in "light" sections, nav */
+  --ochre: #CEA660;     /* accent */
+  --sage: #A0B26E;      /* secondary accent */
+  --ink: #000000;       /* small headings, links, buttons */
+
+  --font-heading: 'Caveat', cursive;
+  --font-button: 'Caveat Brush', cursive;
+  --font-body: 'Lora', Georgia, serif;
+  --font-meta: 'Nunito Sans', system-ui, sans-serif;
+
+  /* Squarespace grid settings used by the per-page layout CSS */
+  --sqs-site-gutter: 4vw;
+  --sqs-mobile-site-gutter: 6vw;
+  --sqs-site-max-width: 1400px;
+  --maxPageWidth: 1400px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--moss);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: .03em;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--ink); }
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--ink); color: #fff; padding: .5rem 1rem; z-index: 100;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+/* ---------- Type scale (same formula Squarespace uses) ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin: 2rem 0;
+}
+h1 { --v: 7.6; color: var(--moss); }
+h2 { --v: 4.9; color: var(--moss); }
+h3 { --v: 2.5; color: var(--ink); }
+h4 { --v: 1.6; color: var(--ink); }
+h1, h2, h3, h4, .sqsrte-large, .sqsrte-small {
+  font-size: calc((var(--v) - 1) * calc(.012 * min(100vh, 900px)) + 1rem);
+  line-height: calc(1.2 * (1 + (1 - var(--v)) / 25));
+}
+.sqsrte-large { --v: 1.5; line-height: 1.4; }
+.sqsrte-small { --v: .9; line-height: 1.4; }
+@media screen and (min-width: 768px), screen and (orientation: landscape) {
+  h1, h2, h3, h4, .sqsrte-large, .sqsrte-small {
+    font-size: min(calc((var(--v) - 1) * 1.2vw + 1rem),
+                   max(calc((var(--v) - 1) * 0.012 * var(--maxPageWidth) + 1rem), calc(var(--v) * 1rem)));
+  }
+}
+p { margin: 1rem 0; }
+.sqs-html-content > :first-child { margin-top: 0; }
+.sqs-html-content > :last-child { margin-bottom: 0; }
+.sqs-html-content ul, .sqs-html-content ol { padding-left: 1.5em; }
+.sqs-html-content li > p { margin: .5rem 0; }
+
+/* Section color themes */
+.theme-light, .theme-light-bold { color: var(--olive); }
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1.25rem var(--sqs-site-gutter);
+  position: relative; z-index: 50;
+}
+.site-header .logo img { max-height: 50px; width: auto; }
+.nav { display: flex; gap: 1.6rem; align-items: center; font-size: 16px; }
+.nav a, .nav summary { color: var(--olive); text-decoration: none; cursor: pointer; }
+.nav a:hover, .nav summary:hover, .nav a[aria-current='page'] { text-decoration: underline; text-underline-offset: 3px; }
+.nav details { position: relative; }
+.nav summary { list-style: none; }
+.nav summary::-webkit-details-marker { display: none; }
+.nav .folder {
+  position: absolute; right: 50%; transform: translateX(50%); top: calc(100% + .6rem);
+  background: var(--cream); padding: .6rem 1rem; min-width: 12rem;
+  display: flex; flex-direction: column; gap: .5rem; text-align: center;
+  box-shadow: 0 4px 16px rgb(0 0 0 / .08);
+}
+.menu-toggle { display: none; }
+
+@media (max-width: 799px) {
+  .menu-toggle {
+    display: block; background: none; border: 0; font: inherit; color: var(--olive);
+    font-size: 1rem; cursor: pointer; padding: .5rem;
+  }
+  .nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--cream); padding: .5rem var(--sqs-mobile-site-gutter) 1.5rem;
+    box-shadow: 0 8px 16px rgb(0 0 0 / .08);
+  }
+  .nav.open { display: flex; }
+  .nav > a, .nav summary { padding: .75rem 0; font-size: 1.25rem; display: block; }
+  .nav .folder { position: static; transform: none; box-shadow: none; text-align: left; padding: 0 0 .5rem 1rem; }
+}
+
+/* ---------- Sections and Squarespace-style grid ---------- */
+.page-section { padding: 2.5rem 0; }
+.page-section:first-child { padding-top: 1rem; }
+.fluid-engine { width: 100%; }
+.fe-block { position: relative; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+
+.fe-img { position: absolute; inset: 0; overflow: hidden; }
+.fe-img img { width: 100%; height: 100%; object-fit: cover; }
+.fe-img.shape-circle { display: flex; align-items: center; justify-content: center; container-type: size; }
+.fe-img.shape-circle img { width: min(100cqw, 100cqh); height: min(100cqw, 100cqh); border-radius: 50%; }
+.fe-img.shape-pill img { border-radius: 999px; }
+.fe-img a { display: block; height: 100%; }
+
+.fe-video { position: relative; width: 100%; aspect-ratio: 16 / 9; }
+.fe-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.fe-button { display: flex; height: 100%; align-items: center; }
+.fe-button.align-left { justify-content: flex-start; }
+.fe-button.align-center { justify-content: center; }
+.fe-button.align-right { justify-content: flex-end; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.6rem; padding: 0 32px; border-radius: 300px;
+  background: var(--ink); color: #fff; text-decoration: none;
+  font-family: var(--font-button); text-transform: uppercase; font-size: 16px; letter-spacing: normal;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .8; }
+.fe-button.stretched .btn { width: 100%; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 3rem; align-items: start;
+  padding: 3rem var(--sqs-site-gutter) 4rem;
+}
+.site-footer .footer-name { font-family: var(--font-heading); font-weight: 700; color: var(--moss); font-size: clamp(2.5rem, 5.2vw, 5.5rem); line-height: 1; margin: 0; white-space: nowrap; }
+@media (max-width: 1000px) { .site-footer .footer-name { white-space: normal; } }
+.site-footer h3 { margin: 0 0 1rem; font-size: 1.5rem; }
+.site-footer p { margin: 0 0 .5rem; color: var(--olive); }
+.site-footer a { color: var(--olive); word-break: break-word; }
+@media (max-width: 767px) {
+  .site-footer { grid-template-columns: 1fr; gap: 1.5rem; }
+}

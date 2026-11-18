@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import Sections from '../components/Sections.astro';
+import content from '../data/content.json';
+const page = (content as any)['404'];
+---
+<Base title="Page not found" description="" path="/404">
+  <Sections sections={page.sections} />
+</Base>

@@ -1,0 +1,55 @@
+---
+// Renders a page's sections. Each section keeps the exact grid layout from the
+// Squarespace site (its fluid-engine CSS), so text and images land where they did.
+import { imageAlt } from '../data/site';
+
+interface Block {
+  cls: string; type: string;
+  html?: string; src?: string; alt?: string; shape?: string | null; focal?: string; href?: string;
+  text?: string; align?: string; stretched?: boolean; url?: string; title?: string;
+}
+interface Section { fe: string; theme: string; css: string; blocks: Block[]; }
+const { sections } = Astro.props as { sections: Section[] };
+
+const altFor = (b: Block) => {
+  const file = (b.src || '').split('/').pop() || '';
+  return b.alt || imageAlt[file] || '';
+};
+const shapeClass = (s?: string | null) => (s === 'circle' ? 'shape-circle' : s && s.includes('pill') ? 'shape-pill' : '');
+const objPos = (f?: string) => {
+  const [x, y] = (f || '0.5,0.5').split(',').map(Number);
+  return `${Math.round(x * 100)}% ${Math.round(y * 100)}%`;
+};
+const isExternal = (h?: string) => !!h && /^(https?:|mailto:)/.test(h);
+---
+{sections.map((sec) => (
+  <section class={`page-section theme-${sec.theme}`}>
+    <div class={`fluid-engine ${sec.fe}`}>
+      {sec.blocks.map((b) => (
+        <div class={`fe-block ${b.cls}`}>
+          {b.type === 'html' && <div class="sqs-html-content" set:html={b.html} />}
+          {b.type === 'image' && b.src && (
+            <div class={`fe-img ${shapeClass(b.shape)}`}>
+              {b.href ? (
+                <a href={b.href}><img src={b.src} alt={altFor(b)} loading="lazy" style={`object-position:${objPos(b.focal)}`} /></a>
+              ) : (
+                <img src={b.src} alt={altFor(b)} loading="lazy" style={`object-position:${objPos(b.focal)}`} />
+              )}
+            </div>
+          )}
+          {b.type === 'button' && (
+            <div class={`fe-button align-${b.align} ${b.stretched ? 'stretched' : ''}`}>
+              <a class="btn" href={b.href} {...(isExternal(b.href) && !b.href!.startsWith('mailto:') ? { target: '_blank', rel: 'noopener' } : {})}>{b.text}</a>
+            </div>
+          )}
+          {b.type === 'video' && b.url && (
+            <div class="fe-video">
+              <iframe src={b.url} title={b.title} loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+    <Fragment set:html={`<style>${sec.css}</style>`} />
+  </section>
+))}

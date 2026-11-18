@@ -1,0 +1,96 @@
+---
+import '@fontsource/caveat/400.css';
+import '@fontsource/caveat/700.css';
+import '@fontsource/caveat-brush/400.css';
+import '@fontsource/lora/400.css';
+import '@fontsource/lora/400-italic.css';
+import '@fontsource/lora/700.css';
+import '@fontsource/nunito-sans/400.css';
+import '../styles/global.css';
+import { nav, siteName, siteUrl, contactEmail, address } from '../data/site';
+
+interface Props { title: string; description?: string; path: string; }
+const { title, description = '', path } = Astro.props;
+const fullTitle = title && title !== siteName ? `${title} | ${siteName}` : siteName;
+const canonical = siteUrl + (path === '/' ? '/' : path);
+const ogImage = siteUrl + '/images/og-main-photo.jpg';
+const isCurrent = (href: string) => href === path;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="logo" href="/" aria-label={siteName + ' home'}>
+        <img src="/images/logo-tree-on-green.webp" alt={siteName} width="56" height="50" />
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        {nav.map((item) =>
+          item.children ? (
+            <details>
+              <summary>{item.label}</summary>
+              <div class="folder">
+                {item.children.map((c) => (
+                  <a href={c.href} aria-current={isCurrent(c.href) ? 'page' : undefined}>{c.label}</a>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <a href={item.href} aria-current={isCurrent(item.href!) ? 'page' : undefined}>{item.label}</a>
+          )
+        )}
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-name">{siteName}</p>
+      <div>
+        <h3>Location</h3>
+        <p>{address.line1}</p>
+        <p>{address.line2}</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href={'mailto:' + contactEmail}>{contactEmail}</a></p>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+      const navEl = document.getElementById('site-nav');
+      toggle?.addEventListener('click', () => {
+        const open = navEl?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(!!open));
+      });
+      // Desktop: only one dropdown open at a time; close on outside click.
+      const folders = [...document.querySelectorAll('.nav details')];
+      folders.forEach((d) => d.addEventListener('toggle', () => {
+        if ((d as HTMLDetailsElement).open) folders.forEach((o) => { if (o !== d) (o as HTMLDetailsElement).open = false; });
+      }));
+      document.addEventListener('click', (e) => {
+        if (!(e.target as Element).closest('.nav details')) folders.forEach((o) => ((o as HTMLDetailsElement).open = false));
+      });
+    </script>
+  </body>
+</html>

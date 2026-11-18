@@ -1,0 +1,19 @@
+---
+// One page per Squarespace page, at the same address (/overview, /materials, ...).
+import Base from '../layouts/Base.astro';
+import Sections from '../components/Sections.astro';
+import content from '../data/content.json';
+
+export function getStaticPaths() {
+  return Object.keys(content)
+    .filter((slug) => slug !== 'home' && slug !== '404')
+    .map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const page = (content as any)[slug!];
+const title = (page.title || '').split(' — ')[0];
+---
+<Base title={title} description={page.description} path={'/' + slug}>
+  <Sections sections={page.sections} />
+</Base>

@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import Sections from '../components/Sections.astro';
+import content from '../data/content.json';
+const page = (content as any).home;
+---
+<Base title="" description={page.description} path="/">
+  <Sections sections={page.sections} />
+</Base>
