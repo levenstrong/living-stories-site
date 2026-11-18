@@ -2,6 +2,7 @@
 
 export const siteName = 'Living Stories Sermons';
 export const siteUrl = 'https://www.livingstoriessermons.org';
+export const newsletterUrl = 'https://lp.constantcontactpages.com/sl/fAtQQZu/livingstories';
 export const contactEmail = 'peterlevenstrong@saintgregorys.org';
 
 export const address = {

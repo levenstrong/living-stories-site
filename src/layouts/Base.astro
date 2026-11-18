@@ -7,7 +7,7 @@ import '@fontsource/lora/400-italic.css';
 import '@fontsource/lora/700.css';
 import '@fontsource/nunito-sans/400.css';
 import '../styles/global.css';
-import { nav, siteName, siteUrl, contactEmail, address } from '../data/site';
+import { nav, siteName, siteUrl, contactEmail, address, newsletterUrl } from '../data/site';
 
 interface Props { title: string; description?: string; path: string; }
 const { title, description = '', path } = Astro.props;
@@ -73,6 +73,11 @@ const isCurrent = (href: string) => href === path;
       <div>
         <h3>Contact</h3>
         <p><a href={'mailto:' + contactEmail}>{contactEmail}</a></p>
+      </div>
+      <div>
+        <h3>Newsletter</h3>
+        <p>New scripts and resources in your inbox.</p>
+        <p><a class="btn footer-btn" href={newsletterUrl} target="_blank" rel="noopener">Subscribe</a></p>
       </div>
     </footer>
 
