@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { contactEmail } from '../data/site';
+---
+<Base title="Living Stories Lab" path="/lab" description="The Living Stories Lab and Theses & Thrones, a theological strategy game set in the English Reformation.">
+  <section class="hero">
+    <div class="wrap split wide-left">
+      <div>
+        <p class="eyebrow">Living Stories Lab</p>
+        <h1>Beyond the sermon</h1>
+        <p class="lead">Living Stories began with preaching, but its commitments to communal interpretation, creative engagement, and intergenerational participation can shape many kinds of formation.</p>
+        <p>The Lab is the home for that work: new practices developed and tested at St. Gregory of Nyssa, then shared with other congregations in forms that are simple and adaptable. It isn't a formal organization yet. It's a vision taking shape, and its first project is a game.</p>
+      </div>
+      <figure class="photo photo-wide">
+        <img src="/img/lab.webp" alt="Felt shapes, small figures, notebooks and drawings laid out on a work table" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section band" id="theses-and-thrones">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <img src="/img/tt-logo.webp" alt="Theses and Thrones logo" width="220" style="margin-bottom:1rem" />
+        <p class="eyebrow">First project · In beta</p>
+        <h2>Theses &amp; Thrones</h2>
+        <p class="lead">A theological strategy game set in the English Reformation. Players don't study the Reformation; they preach their way through it.</p>
+        <p>Youth take on four factions (Henricians, Evangelicals, Puritans, and Traditionalists), each with real theological positions, a historical theologian, and a team of preachers to deploy across a map of the British Isles. Over five sessions they argue the questions the reformers faced, like who has authority over the church and whether worship should be in Latin, and test their arguments before judges to win reinforcements.</p>
+        <p>Each session, a real event such as the Act of Supremacy or the Dissolution of the Monasteries reshapes the board. Factions rise and fall, and players feel how theology and politics shaped each other.</p>
+      </div>
+      <div class="stack">
+        <figure class="photo">
+          <img src="/img/board.webp" alt="The Theses and Thrones game board, a map of the British Isles" width="554" height="624" loading="lazy" />
+        </figure>
+        <div class="card">
+          <h3>The details</h3>
+          <ul class="check small" style="margin-top:.75rem">
+            <li>Piloted at FOG Camp 2025 with players ages 7 to 17</li>
+            <li>Best for middle school through college; 8 players minimum, 12 to 20 ideal</li>
+            <li>Sessions run 2 to 4 hours, as a week-long intensive or across several weeks</li>
+            <li>Includes faction files, a printable map, and links to order the wooden figures</li>
+            <li>Beta access: $200 suggested donation per congregation. Pilot sites that give in-depth feedback may receive an honorarium.</li>
+          </ul>
+          <div class="actions"><a class="btn" href={'mailto:' + contactEmail + '?subject=Theses%20%26%20Thrones%20beta'}>Request beta access</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

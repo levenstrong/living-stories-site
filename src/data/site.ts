@@ -1,69 +1,46 @@
-// Site-wide settings: menu, footer, contact. Edit here, not in the layout.
+// Site-wide settings and links. Edit links here and every page picks them up.
 
 export const siteName = 'Living Stories Sermons';
 export const siteUrl = 'https://www.livingstoriessermons.org';
-export const newsletterUrl = 'https://lp.constantcontactpages.com/sl/fAtQQZu/livingstories';
 export const contactEmail = 'peterlevenstrong@saintgregorys.org';
 
-export const address = {
-  line1: '500 De Haro St.',
-  line2: 'San Francisco, CA 94107',
+export const links = {
+  newsletter: 'https://lp.constantcontactpages.com/sl/fAtQQZu/livingstories',
+  webinar: 'https://docs.google.com/forms/d/e/1FAIpQLSfvw2IRZYgVJYY7EZtz_iz7FXladoagZ5Ky-gx5KCG8rtVOZg/viewform',
+  youtube: 'https://www.youtube.com/@livingstoriessermons/playlists',
+  video: 'https://www.youtube.com/embed/hgFOpxXFXa0',
+  book: 'https://churchpublishing.org/products/9781640659193-collaborative-sermons',
+  amazon: 'https://www.amazon.com/Collaborative-Sermons-Authentic-Interactive-Worship/dp/1640659196',
+  barnesNoble: 'https://www.barnesandnoble.com/w/collaborative-sermons-peter-levenstrong/1147883581',
 };
 
-export type NavItem = { label: string; href?: string; children?: { label: string; href: string }[] };
-
-export const nav: NavItem[] = [
-  { label: 'Book', href: '/book' },
+export const guides = [
   {
-    label: 'About',
-    children: [
-      { label: 'Overview', href: '/overview' },
-      { label: 'History', href: '/history' },
-      { label: 'Sources of Inspiration', href: '/sources-of-inspiration' },
-    ],
+    title: 'A Practical Guide to Living Stories',
+    text: 'How to tell the stories and facilitate the conversation.',
+    href: 'https://docs.google.com/document/d/1IC3pFQvsNfgRAS6mx-L7hJ86Z9kkl-GarWM-7iDBzDk/edit?usp=sharing',
   },
   {
-    label: 'How it Works',
-    children: [
-      { label: 'Step-By-Step', href: '/step-by-step' },
-      { label: 'Materials', href: '/materials' },
-      { label: 'Facilitating Sermons', href: '/facilitating-sermons' },
-      { label: 'How to Start', href: '/how-to-start' },
-    ],
+    title: 'What Is Living Stories?',
+    text: 'The thinking behind the method.',
+    href: 'https://docs.google.com/document/d/1-tyT8LSKI6D06C6sJM9PTb6P_GRJHgW-qlq6CGCmKn0/edit?usp=sharing',
   },
   {
-    label: 'Resources',
-    children: [
-      { label: 'Training Materials', href: '/training-materials' },
-      { label: 'Media', href: '/media' },
-    ],
-  },
-  {
-    label: 'Living Stories Lab',
-    children: [
-      { label: 'About the Lab', href: '/about-the-lab' },
-      { label: 'Theses and Thrones', href: '/theses-and-thrones' },
-    ],
+    title: 'Beginning Your Living Stories Journey',
+    text: 'A roadmap for starting in your own congregation.',
+    href: 'https://docs.google.com/document/d/146UFv5oa2mFxxFsTc9m3LzzIb73SJfYZV7czGRirxcE/edit?usp=sharing',
   },
 ];
 
-// Alt text for images (the Squarespace site had none). Keyed by file name.
-export const imageAlt: Record<string, string> = {
-  'facilitating-the-wondering-response-54dc4662.webp': 'A vested preacher seated among a congregation, leading a Living Stories conversation',
-  'facilitating-the-wondering-response-3e515a20.webp': 'A vested preacher seated among a congregation, leading a Living Stories conversation',
-  'godly-play-and-eucharist-3-f57b4e66.webp': 'An outdoor service with children and adults gathered around a table',
-  'congregation-map-66010d24.webp': 'A map of where congregations using Living Stories Sermons are located',
-  'story-blocks-tall-b1aa0907.webp': 'Wooden story figures arranged on a felt underlay',
-  'story-blocks-f368fdd6.webp': 'Wooden story figures arranged on a felt underlay',
-  'story-blocks-medium-f3cc6e2b.webp': 'Wooden story figures arranged on a felt underlay',
-  'telling-the-story-6ded820c.webp': 'A congregation of all ages gathered around a storyteller in a church with painted icons',
-  'materials-5599a100.webp': 'Wooden buildings and figures set on a round green felt underlay',
-  'wondering-response-44a2153f.webp': 'Congregation members sharing responses during the wondering time',
-  'pentecost-story-a8b01d58.webp': 'Wooden figures and paper symbols laid out for a Pentecost story',
-  'participants-talking-f2cb6892.webp': 'Children and adults seated close together, listening during a sermon',
-  'reflecting-on-the-story-c0c2ea5b.webp': 'Members of a congregation listening during worship',
-  'cover-0f07184b.webp': 'Cover of Collaborative Sermons by Peter Levenstrong',
-  'logo-a6ef8d36.webp': 'Theses and Thrones logo',
-  'board-b5d600ab.webp': 'The Theses and Thrones game board, a map of the British Isles',
-  'lab-at-work-aa7c9ee7.webp': 'Felt shapes, small figures, notebooks and drawings laid out on a work table',
+export const address = {
+  line1: 'St. Gregory of Nyssa Episcopal Church',
+  line2: '500 De Haro St., San Francisco, CA 94107',
 };
+
+export const nav = [
+  { label: 'About', href: '/about' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'Get started', href: '/get-started' },
+  { label: 'The book', href: '/book' },
+  { label: 'Lab', href: '/lab' },
+];

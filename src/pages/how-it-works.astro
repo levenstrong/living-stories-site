@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+import { links } from '../data/site';
+
+const recordings = [
+  { church: 'St. Gregory of Nyssa Episcopal Church', place: 'San Francisco, CA', items: [{ label: 'Full playlist on YouTube', href: links.youtube }] },
+  { church: "St. Anne's Episcopal Church", place: 'Reston, VA', items: [
+    { label: 'Aug 25, 2024', href: 'https://player.vimeo.com/video/1000084817?h=1cee263cac' },
+    { label: 'Oct 27, 2024', href: 'https://player.vimeo.com/video/1021446897?h=4ef907ff9e' },
+    { label: 'Dec 1, 2024', href: 'https://vimeo.com/1032830637' },
+    { label: 'Jan 5, 2025', href: 'https://player.vimeo.com/video/1042757475?h=8aaea4dc5d' },
+  ] },
+  { church: "St. Matthew's Episcopal Church", place: 'Parker, CO', items: [
+    { label: 'Nov 3, 2024', href: 'https://www.youtube.com/watch?v=gKKTc9J7vBM' },
+    { label: 'Dec 1, 2024', href: 'https://youtu.be/gatDf2_Eqb8' },
+    { label: 'Jan 5, 2025', href: 'https://www.youtube.com/watch?v=GliaQUbGLKY' },
+  ] },
+  { church: "St. Mark's Episcopal Church", place: 'Albuquerque, NM', items: [
+    { label: 'Nov 14, 2024', href: 'https://www.facebook.com/watch/live/?ref=watch_permalink&v=558683370435591' },
+  ] },
+];
+---
+<Base title="How it works" path="/how-it-works" description="Step by step: how to prepare, tell, and facilitate a Living Stories Sermon, and the simple materials it uses.">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h1>From story to shared sermon</h1>
+      <p class="lead">A Living Stories Sermon takes the place of the usual sermon. Here is what it looks like, what you need, and how the preacher's role changes.</p>
+      <nav class="toc" aria-label="On this page">
+        <a href="#steps">The steps</a>
+        <a href="#materials">Materials</a>
+        <a href="#facilitating">Facilitating</a>
+        <a href="#watch">Recordings</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section band" id="steps">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="eyebrow">The steps</p>
+        <h2>Eight steps, one Sunday</h2>
+        <ol class="steps" style="margin-top:2rem">
+          <li><h3>Choose your story</h3><p>Start with the Gospel reading from the Revised Common Lectionary for the Sunday you have in mind.</p></li>
+          <li><h3>Prepare with the script</h3><p>Each script has a materials list, the full Gospel passage with stage directions, and wondering questions. Scripture stays as written; adapt the rest to your context. Do your usual exegesis too, so you can support the congregation wherever the conversation goes.</p></li>
+          <li><h3>Gather materials</h3><p>Use what you have. Felt underlays, wooden figures, and a few printed images are plenty.</p></li>
+          <li><h3>Set the space</h3><p>Invite people to gather close. At St. Gregory's we begin: "Listen to the story with your ears, your eyes, and your heart, and if you want to see or hear better, come close and help everyone to participate."</p></li>
+          <li><h3>Tell the story</h3><p>Let the objects, movements, and words draw people into the narrative.</p></li>
+          <li><h3>Wonder together</h3><p>Ask open-ended wondering questions, welcome every response, and mirror back what you hear.</p></li>
+          <li><h3>Wrap up</h3><p>Thank the congregation and move on to the next part of the liturgy. No summary is needed. Leaving the story open leaves room for the Spirit.</p></li>
+          <li><h3>Reflect and grow</h3><p>Afterward, notice what worked and what to change, and share what you learn with other Living Stories preachers.</p></li>
+        </ol>
+      </div>
+      <div style="position:sticky;top:100px">
+        <figure class="photo photo-tall">
+          <img src="/img/figures.webp" alt="Wooden story figures arranged on a felt underlay" loading="lazy" />
+        </figure>
+        <div class="callout">
+          <p><strong>Space tips.</strong> Use a central spot where everyone can see the materials. In a large room, pass handheld microphones. Most churches are built for one speaker, so working against the architecture takes some intention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="materials">
+    <div class="wrap">
+      <div class="prose">
+        <p class="eyebrow">Materials</p>
+        <h2>Simple on purpose</h2>
+        <p>The materials make the story visible without interpreting it for anyone. Keep them simple and use what your church already has. There is no store; the only materials we make are the printed images that come with the scripts.</p>
+      </div>
+      <div class="grid-3" style="margin-top:2rem">
+        <div class="card">
+          <img class="photo" src="/img/materials.webp" alt="Wooden buildings and figures set on a round green felt underlay" loading="lazy" style="border-radius:10px;margin-bottom:1rem;aspect-ratio:4/3;object-fit:cover" />
+          <h3>Underlays</h3>
+          <p>Felt or fabric that sets the scene: green for countryside, blue for water, gray for a city. Evoke the setting; don't replicate it.</p>
+        </div>
+        <div class="card">
+          <img class="photo" src="/img/figures-wide.webp" alt="Simple wooden figures and buildings" loading="lazy" style="border-radius:10px;margin-bottom:1rem;aspect-ratio:4/3;object-fit:cover" />
+          <h3>Figures and props</h3>
+          <p>Plain wooden figures for people, plus objects like bread or a boat. Skip detailed pieces like nativity sets, which do the interpreting for the congregation.</p>
+        </div>
+        <div class="card">
+          <img class="photo" src="/img/pentecost.webp" alt="Wooden figures and paper symbols laid out for a Pentecost story" loading="lazy" style="border-radius:10px;margin-bottom:1rem;aspect-ratio:4/3;object-fit:cover" />
+          <h3>Printed images</h3>
+          <p>Simple line drawings on small easels for teachings and parables. When Jesus reads from Isaiah in Luke 4, a drawing of broken handcuffs stands for release.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="facilitating">
+    <div class="wrap">
+      <div class="prose">
+        <p class="eyebrow">Facilitating</p>
+        <h2>The preacher becomes a facilitator</h2>
+        <p>You still tell the story and bring the exegetical knowledge. What changes is that the congregation does the interpreting. Your job is to invite, listen, and trust the Spirit with the outcome.</p>
+      </div>
+      <div class="split" style="align-items:start;margin-top:2rem">
+        <div class="stack">
+          <div class="card">
+            <h3>Ask real questions</h3>
+            <p>Wondering questions have no right answer. Avoid leading questions that point toward the one you're hoping for.</p>
+            <div class="dialogue">
+              <p>"I wonder what the voice from heaven at Jesus' baptism sounded like."</p>
+              <p>"I wonder what it was like when people first heard the news about Jesus spreading through the countryside."</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Mirror back</h3>
+            <p>Repeat or reframe what each person says, in the best light you can. People feel heard, and everyone in the room can follow along.</p>
+          </div>
+          <div class="card">
+            <h3>Invite depth</h3>
+            <p>When someone reaches for a familiar answer, gently ask what it means to them.</p>
+            <div class="dialogue">
+              <p><b>Facilitator</b>"I wonder what Jesus means when he says that those who eat this bread will live forever."</p>
+              <p><b>Participant</b>"It means if you believe in Jesus you'll go to heaven."</p>
+              <p><b>Facilitator</b>"I wonder what that means to you."</p>
+            </div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <h3>Give knowledge, not interpretation</h3>
+            <p>When someone asks a question, notice whether it asks for knowledge or for an opinion. Answer the first. Hand the second back.</p>
+            <div class="dialogue">
+              <p><b>Participant</b>"Who were the Pharisees?"</p>
+              <p><b>Facilitator</b>Offers a short, clear answer about who the Pharisees were and how their teaching related to Jesus'.</p>
+              <p><b>Participant</b>"Why didn't Jesus answer them directly?"</p>
+              <p><b>Facilitator</b>"I wonder what you imagine, why he didn't do that."</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Follow the conversation</h3>
+            <p>Respond to the group in the moment. When a new idea surfaces, explore it with curiosity instead of steering back to your plan.</p>
+          </div>
+          <figure class="photo photo-wide">
+            <img src="/img/wondering.webp" alt="Congregation members sharing responses during the wondering time" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="watch">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="eyebrow">Recordings</p>
+        <h2>Watch other congregations</h2>
+        <p>These churches have shared their Living Stories Sermons publicly. If your congregation records one, send it along and we'll add it here.</p>
+        <div class="actions"><a class="btn btn-ghost" href="/get-started">Start your own</a></div>
+      </div>
+      <ul class="recordings">
+        {recordings.map((r) => (
+          <li>
+            <h3>{r.church}</h3>
+            <span class="muted small">{r.place}</span>
+            <div class="dates">
+              {r.items.map((i) => <a href={i.href} target="_blank" rel="noopener">{i.label}</a>)}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>

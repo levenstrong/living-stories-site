@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import { links } from '../data/site';
+
+const reasons = [
+  { t: 'The sermon as a communal act of faith', p: 'It reclaims preaching as something the whole Body of Christ creates together, young and old, in the spirit of the early church.' },
+  { t: 'Intergenerational worship as hospitality', p: 'When every age makes meaning around scripture together, intergenerational worship stops being a program and becomes a theological commitment.' },
+  { t: 'Innovation rooted in tradition', p: 'The method is grounded in the Revised Common Lectionary and long Christian practice, a model for congregations navigating change.' },
+  { t: 'Analog community in an AI-shaped world', p: 'Tactile storytelling, face-to-face conversation, and embodied presence offer a counterweight to ever more mediated lives.' },
+  { t: 'Formation for a secular age', p: 'For people wary of authority and tired of passive religion, wondering together invites honest engagement with scripture.' },
+];
+---
+<Base title="Collaborative Sermons" path="/book" description="Collaborative Sermons: A Guide to Authentic, Interactive Worship through Living Stories, by Peter Levenstrong. Now available from Church Publishing.">
+  <section class="hero">
+    <div class="wrap split">
+      <div style="justify-self:center"><img class="book-cover" src="/img/cover.webp" alt="Cover of Collaborative Sermons by Peter Levenstrong" width="462" height="716" /></div>
+      <div>
+        <p class="eyebrow">The book · Now available</p>
+        <h1>Collaborative Sermons</h1>
+        <p class="lead">A Guide to Authentic, Interactive Worship through Living Stories</p>
+        <p>Collaborative preaching invites the whole congregation, across generations, into the work of interpreting scripture. This book is a practical guide to doing it well, and a case for shared ministry as the direction the church needs to go.</p>
+        <p class="muted small">Peter Levenstrong · Church Publishing, 2026</p>
+        <div class="actions">
+          <a class="btn" href={links.book} target="_blank" rel="noopener">Buy from Church Publishing</a>
+        </div>
+        <p class="retailers">Also at <a href={links.amazon} target="_blank" rel="noopener">Amazon</a>, <a href={links.barnesNoble} target="_blank" rel="noopener">Barnes &amp; Noble</a>, Bookshop.org, and your local independent bookseller.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <div class="prose">
+        <p class="eyebrow">About the book</p>
+        <h2>What if the sermon belonged to everyone?</h2>
+        <p>This is the first book to introduce Living Stories Sermons to the wider church. Each chapter pairs theological foundations with practical guidance and real examples, for experienced preachers looking for a fresh approach, lay leaders who want deeper congregational engagement, and anyone curious about worship that is truly co-created.</p>
+      </div>
+      <div class="grid-3" style="margin-top:2rem">
+        {reasons.map((r) => (
+          <div class="card"><h3>{r.t}</h3><p>{r.p}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Praise</p>
+      <h2>What people are saying</h2>
+      <div class="split" style="align-items:start;margin-top:2rem">
+        <blockquote class="quote card">
+          <p>"Of the many ways collaborative preaching is practiced, this is by far the most genuinely intergenerational approach I've seen. Nurtured by a theology of play and grounded in trust, preaching becomes an imaginative 'wondering' space for discerning how Scripture connects meaningfully with sermon-participants. Peter Levenstrong has carefully road-tested and tweaked this method, and his expert advice extends beyond the book through a vibrant online community. Join it, and learn to invite your congregation into creative participation in the church's ministry of proclamation."</p>
+          <cite><strong>The Rev. Dr. John S. McClure</strong>, Charles G. Finney Professor of Preaching and Worship, Emeritus, Vanderbilt Divinity School; Past President, Academy of Homiletics; author of <em>The Roundtable Pulpit</em></cite>
+        </blockquote>
+        <blockquote class="quote card">
+          <p>"More than a sermon method, <em>Living Stories Sermons</em> welcomes readers into a surprising, effective, and holy experiment in 'hearing God's word revealed through our shared act of listening, speaking and wondering.' As a regular worshipper at St. Gregory of Nyssa — where Peter developed this practice — I've watched its theological and pedagogical depth unfold week by week through a whole liturgical year. Throughout the book, Peter keeps the <em>why</em> of a community-created sermon grounded in Gospel discoveries — what Jesus himself did: 'ask a real question, and trust the people in front of him with the answer.'"</p>
+          <cite><strong>The Rev. Donald Schell</strong>, Co-founder, St. Gregory of Nyssa Episcopal Church and All Saints Company</cite>
+        </blockquote>
+      </div>
+      <div class="actions"><a class="btn" href={links.book} target="_blank" rel="noopener">Get the book</a></div>
+    </div>
+  </section>
+</Base>

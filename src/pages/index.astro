@@ -1,9 +1,101 @@
 ---
 import Base from '../layouts/Base.astro';
-import Sections from '../components/Sections.astro';
-import content from '../data/content.json';
-const page = (content as any).home;
+import { links } from '../data/site';
 ---
-<Base title="" description={page.description} path="/">
-  <Sections sections={page.sections} />
+<Base path="/">
+  <section class="hero">
+    <div class="wrap split wide-left">
+      <div>
+        <p class="eyebrow">Collaborative preaching for all ages</p>
+        <h1>A sermon the whole congregation tells together</h1>
+        <p class="lead">In a Living Stories Sermon, the preacher tells the Gospel with simple wooden figures and felt, then asks open-ended wondering questions. People of every age interpret the text together, and the conversation becomes the sermon.</p>
+        <div class="actions">
+          <a class="btn" href="/get-started">Get started</a>
+          <a class="btn btn-ghost" href="#watch">Watch one</a>
+        </div>
+      </div>
+      <figure class="photo photo-tall">
+        <img src="/img/telling.webp" alt="A congregation of all ages gathered around a storyteller in a church with painted icons" width="1600" height="1200" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Three movements</h2>
+      <div class="grid-3" style="margin-top:2rem">
+        <div class="card">
+          <div class="num">1</div>
+          <h3>Tell the story</h3>
+          <p>The preacher tells the lectionary Gospel using figures, felt underlays, and simple images, so everyone can see the story unfold.</p>
+        </div>
+        <div class="card">
+          <div class="num">2</div>
+          <h3>Wonder together</h3>
+          <p>Open-ended questions like "I wonder why Jesus' first sign took place at a wedding" invite the room to respond.</p>
+        </div>
+        <div class="card">
+          <div class="num">3</div>
+          <h3>Interpret as one body</h3>
+          <p>The preacher listens, mirrors back what people say, and offers context when it helps, without handing down a single answer.</p>
+        </div>
+      </div>
+      <div class="actions"><a class="btn btn-ghost" href="/how-it-works">See the full method</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="watch">
+    <div class="wrap split">
+      <div class="video">
+        <iframe src={links.video} title="Living Stories: An Emerging Homiletical Method for Authentic Intergenerational Belonging" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div>
+        <p class="eyebrow">See it in action</p>
+        <h2>Watch a Living Stories Sermon</h2>
+        <p>The method began at St. Gregory of Nyssa Episcopal Church in San Francisco and is now used by congregations across the country. Recordings from several of them are collected on one page.</p>
+        <div class="actions"><a class="btn btn-ghost" href="/how-it-works#watch">More recordings</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap split">
+      <div style="justify-self:center"><img class="book-cover" src="/img/cover.webp" alt="Cover of Collaborative Sermons by Peter Levenstrong" width="462" height="716" /></div>
+      <div>
+        <p class="eyebrow">The book</p>
+        <h2>Collaborative Sermons</h2>
+        <p>Collaborative preaching invites the whole congregation, across generations, into the work of interpreting scripture. Peter Levenstrong's book is a practical guide to doing it well, and a case for shared ministry as the direction the church needs to go.</p>
+        <p class="muted small">Church Publishing, 2026</p>
+        <div class="actions">
+          <a class="btn" href={links.book} target="_blank" rel="noopener">Get the book</a>
+          <a class="btn btn-ghost" href="/book">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Where to go next</p>
+      <h2>Find your way in</h2>
+      <div class="grid-3" style="margin-top:2rem">
+        <a class="card" href="/about">
+          <h3>Curious?</h3>
+          <p>Where Living Stories came from and what it draws on.</p>
+          <span class="more">About the method →</span>
+        </a>
+        <a class="card" href="/get-started">
+          <h3>Ready to try it?</h3>
+          <p>Join a training webinar, read the guides, and pick your first Sunday.</p>
+          <span class="more">Get started →</span>
+        </a>
+        <a class="card" href="/lab">
+          <h3>Beyond the sermon</h3>
+          <p>The Living Stories Lab and Theses &amp; Thrones, a Reformation strategy game for youth.</p>
+          <span class="more">Visit the Lab →</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </Base>

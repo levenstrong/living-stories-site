@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { links, guides, contactEmail } from '../data/site';
+---
+<Base title="Get started" path="/get-started" description="Join a training webinar, read the guides, and preach your first Living Stories Sermon.">
+  <section class="hero">
+    <div class="wrap split wide-left">
+      <div>
+        <p class="eyebrow">Get started</p>
+        <h1>Bring Living Stories to your congregation</h1>
+        <p class="lead">Starting is simple. Most preachers begin with a training webinar, then try it on one Sunday and go from there. Use it once a month or every week.</p>
+        <div class="actions">
+          <a class="btn" href={links.webinar} target="_blank" rel="noopener">Sign up for a webinar</a>
+          <a class="btn btn-ghost" href={'mailto:' + contactEmail + '?subject=Living%20Stories%20Sermons'}>Ask a question</a>
+        </div>
+      </div>
+      <figure class="photo photo-tall">
+        <img src="/img/participants.webp" alt="Children and adults seated close together, listening during a sermon" style="object-position:40% 50%" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <p class="eyebrow">Three steps</p>
+      <h2>Your path to a first Sunday</h2>
+      <div class="grid-3" style="margin-top:2rem">
+        <div class="card">
+          <div class="num">1</div>
+          <h3>Join a webinar</h3>
+          <p>Learn the principles, how it fits your liturgy, and practical tips for storytelling and facilitation, with time for your questions. You'll get access to the lectionary scripts after your first webinar.</p>
+          <a class="more" href={links.webinar} target="_blank" rel="noopener" style="font-family:var(--sans);font-weight:700">Sign up →</a>
+        </div>
+        <div class="card">
+          <div class="num">2</div>
+          <h3>Read the guides</h3>
+          <p>Three short guides cover the method, the thinking behind it, and how to begin in your context. See the list below.</p>
+        </div>
+        <div class="card">
+          <div class="num">3</div>
+          <h3>Pick a Sunday</h3>
+          <p>Start small. Choose one Sunday, practice telling the story and asking the questions out loud, and see what your congregation does with it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Training guides</p>
+      <h2>Free to read</h2>
+      <div class="grid-3" style="margin-top:2rem">
+        {guides.map((g) => (
+          <a class="card" href={g.href} target="_blank" rel="noopener">
+            <h3>{g.title}</h3>
+            <p>{g.text}</p>
+            <span class="more">Open guide →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Keep learning</p>
+        <h2>You won't be doing this alone</h2>
+        <p>Living Stories preachers learn from each other. Watch how other congregations do it, share your own recordings, and reach out anytime with questions or to connect with other practitioners.</p>
+        <div class="actions">
+          <a class="btn btn-ghost" href="/how-it-works#watch">Watch recordings</a>
+          <a class="btn btn-ghost" href={'mailto:' + contactEmail + '?subject=Connecting%20with%20Living%20Stories%20practitioners'}>Get in touch</a>
+        </div>
+      </div>
+      <figure class="photo photo-wide">
+        <img src="/img/listening.webp" alt="Members of a congregation listening during worship" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+</Base>

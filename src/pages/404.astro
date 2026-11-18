@@ -1,9 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
-import Sections from '../components/Sections.astro';
-import content from '../data/content.json';
-const page = (content as any)['404'];
 ---
-<Base title="Page not found" description="" path="/404">
-  <Sections sections={page.sections} />
+<Base title="Page not found" path="/404" signup={false}>
+  <section class="hero">
+    <div class="wrap prose">
+      <p class="eyebrow">404</p>
+      <h1>Lost in the story?</h1>
+      <p class="lead">We couldn't find that page. It may have moved when the site was simplified.</p>
+      <div class="actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn btn-ghost" href="/how-it-works">How it works</a>
+        <a class="btn btn-ghost" href="/get-started">Get started</a>
+      </div>
+    </div>
+  </section>
 </Base>
